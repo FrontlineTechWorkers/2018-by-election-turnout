@@ -4,11 +4,20 @@ var gap = 2;
 var width = 22;
 var maxRadius = 115;
 var cat = ["ECNow", "LegcoNow", "LegcoFinal"];
-var catNames = ["選委即時", "立會同期", "立會最終"]
+var catNames = ["選委即時", "立會同期", "立會整天"]
 var catColors = ["#ff0000", "#999999", "#000000"];
+
+d3.select("#header")
+  .on("click", function() { window.location.hash = "#" });
 
 function draw(data, tabletop) {
   console.log(data);
+
+  d3.select("#loading")
+    .style("display", "none");
+
+  d3.select("#content")
+    .style("display", "block");
 
   var svg = d3.select("#charts").selectAll("svg").data(data);
 
@@ -17,7 +26,11 @@ function draw(data, tabletop) {
     .style("width", "280px")
     .style("height", "280px")
     .style("background", "#d0d0d0")
-    .style("margin", "10px");
+    .style("margin", "10px")
+    .style("cursor", "pointer")
+    .on("click", function(d, i) {
+      window.location.hash = "#" + window.encodeURIComponent(d["ECName"]);
+    });
 
   // Sector name.
   newChart.append("text")
@@ -98,6 +111,8 @@ function draw(data, tabletop) {
   }
 
   svg.exit().remove();
+
+  applyFilter();
 }
 
 function load() {
@@ -108,4 +123,13 @@ function load() {
   });
 }
 
+function applyFilter() {
+  var selected = window.decodeURIComponent(window.location.hash).substring(1);
+  d3.selectAll("#charts svg")
+    .attr("display", function(d, i) {
+      return (selected && d["ECName"] != selected) ? "none" : "";
+    });
+}
+
 load();
+window.onhashchange = applyFilter;

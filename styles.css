@@ -11,10 +11,25 @@ html, body {
 	justify-content: center;
 	align-items: center;
 	color: white;
+	cursor: pointer;
 }
 #body {
 	background: white;
 	padding: 20px 10px;
+	text-align: center;
+}
+#loading {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-image: url(images/ring-alt.gif);
+	margin: 30px;
+}
+#content {
+	display: none;
+}
+#notes {
+	font-size: 13px;
 }
 #footer {
 	height: 60px;
