@@ -5,7 +5,7 @@ var width = 22;
 var maxRadius = 115;
 var cat = ["ECNow", "LegcoNow", "LegcoFinal"];
 var catNames = ["選委即時", "立會同期", "立會整天"]
-var catColors = ["#ff0000", "#999999", "#000000"];
+var catColors = ["#ff0000", "#000000", "#999999"];
 var lastData = null;
 
 d3.select("#header")
@@ -26,7 +26,7 @@ function draw(data, tabletop) {
     .append("svg")
     .style("width", "280px")
     .style("height", "280px")
-    .style("background", "#d0d0d0")
+    .style("background", "#dddddd")
     .style("margin", "10px")
     .style("cursor", "pointer")
     .on("click", function(d, i) {
