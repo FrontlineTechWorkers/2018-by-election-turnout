@@ -6,12 +6,13 @@ var maxRadius = 115;
 var cat = ["ECNow", "LegcoNow", "LegcoFinal"];
 var catNames = ["選委即時", "立會同期", "立會整天"]
 var catColors = ["#ff0000", "#999999", "#000000"];
+var lastData = null;
 
 d3.select("#header")
   .on("click", function() { window.location.hash = "#" });
 
 function draw(data, tabletop) {
-  console.log(data);
+  lastData = data;
 
   d3.select("#loading")
     .style("display", "none");
