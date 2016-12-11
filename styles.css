@@ -12,6 +12,7 @@ html, body {
 	align-items: center;
 	color: white;
 	cursor: pointer;
+	padding: 5px 0;
 }
 #body {
 	background: white;
