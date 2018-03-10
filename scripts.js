@@ -1,10 +1,11 @@
-var dataUrl = "https://docs.google.com/spreadsheets/d/1Kbb8B2oPdvmsmoGqSzVScUaMMx76Mc6t156q_94QxSA/pubhtml"
+//var dataUrl = "https://docs.google.com/spreadsheets/d/1Kbb8B2oPdvmsmoGqSzVScUaMMx76Mc6t156q_94QxSA/pubhtml"
+var dataUrl = "https://docs.google.com/spreadsheets/d/1T3swnYQ6h2C_1_f_XVXSACG4ltKM1tJql5jJqWrw9Ks/pubhtml"
 var myScale = d3.scale.linear().domain([0, 1]).range([0, 2 * Math.PI]);
 var gap = 2;
 var width = 22;
 var maxRadius = 115;
 var cat = ["ECNow", "LegcoNow", "LegcoFinal"];
-var catNames = ["選委即時", "立會同期", "立會整天"]
+var catNames = ["補選即時", "立會同期", "立會整天"]
 var catColors = ["#ff0000", "#000000", "#999999"];
 var lastData = null;
 
